@@ -1,0 +1,103 @@
+/* .main-div{
+display: flex;
+gap: 30px;
+}
+.item-2{
+    flex-grow: 1;
+    border:2px solid black;
+    padding:10px;
+    height: 554px;
+    width: 538px 
+}
+
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #8e8987;
+    color: rgb(220, 217, 217);
+}
+.main-login{
+    width: auto;
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+.loginCard{
+    border: 2px solid black;
+    padding: 20px;
+    margin: 10px;
+    width: 430px;
+    border-radius: 30px;
+    
+}
+.loginImage{
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 10px;
+    border:2px solid blueviolet;
+    width: 200px;
+    border-radius: 100px;
+}
+.image{
+    display: flex;
+    gap:10px;
+}
+.loginButtons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+}
+.userdetails{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+}
+.username-Textbox{
+    height:20px;
+    width: 200px;
+}
+.password-Textbox{
+    height:20px;
+    width: 200px;
+}
+.loginbtn{
+    font-size: larger;
+    font-family:monospace;
+    font-weight:500;
+    height: 30px;
+  width:300px;
+  
+  
+}
+.login:hover{
+    background-color: aquamarine;
+}
+.next{
+    width:150px;
+    border-radius: 30px;
+} */
+/* -------------NAV BAR------------ */
+/* .nav-bar{
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+nav{
+    display:  flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+    width:65px;
+    border:2px solid black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    height: 400px;
+    font-size: larger;
+
+} */

@@ -3,22 +3,23 @@ import { useNavigate } from "react-router-dom";
 import userDetails from "../contexts/userContext";
 import nextLogo from "../assets/next.svg";
 import themeMode from "../contexts/themeContext";
+import axios from "axios";
 function LoginOut({ userData, user, getData }) {
   const { logOut, login } = useContext(userDetails);
   const navigate = useNavigate();
-  function Login() {
+  async function Login() {
     login(user);
     navigate("/", { replace: true });
   }
+
   const { themes } = useContext(themeMode);
   return (
     <>
-      <h1></h1>
       <div
-        className={`border-2 my-8 w-auto px-16 rounded-lg py-4 ${themes.color} ${themes.font}`}
+        className={`border-2 my-8 w-auto px-16 rounded-lg py-4 bg-gradient-to-br from-slate-800  to-emerald-200  `}
       >
         <h1 className="text-center text-2xl">
-          {userData ? "logout" : "login"}
+          {userData ? " logout" : " Random User login"}
         </h1>
         <div className="flex justify-center flex-col mt-3">
           <img
@@ -30,22 +31,24 @@ function LoginOut({ userData, user, getData }) {
             className="rounded-full flex justify-center"
           />
           <input
-            type="text"
+            type="email "
             value={
               userData
-                ? userData.results && userData.results[0].name.first
-                : user.results && user.results[0].name.first
+                ? userData.results && userData.results[0].email
+                : user.results && user.results[0].email
             }
             className="border-b-2 border-dotted my-2 bg-transparent"
+            readOnly
           />
           <input
             type="text"
             value={
               userData
-                ? userData.results && userData.results[0].login.username
-                : user.results && user.results[0].login.username
+                ? userData.results && userData.results[0].login.password
+                : user.results && user.results[0].login.password
             }
             className="border-b-2 border-dotted my-1  bg-transparent"
+            readOnly
           />
         </div>
         {userData ? (

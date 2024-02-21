@@ -10,8 +10,8 @@ function Settings() {
   }
 
   return (
-    <div className="flex-col ">
-      <div className="flex m-7" onClick={() => ftheme("light")}>
+    <div className="flex-col ml-24   ">
+      <div className="flex m-7">
         <h2 className=" text-2xl">light mode</h2>
         <button
           onClick={() => {
@@ -22,7 +22,7 @@ function Settings() {
           light mode
         </button>
       </div>
-      <div className="flex m-7" onClick={() => ftheme("dark")}>
+      <div className="flex m-7">
         <h2 className="text-2xl">dark mode</h2>
         <button
           onClick={() => {

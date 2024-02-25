@@ -16,9 +16,9 @@ function NavBar() {
   };
   return (
     <div
-      className={`border-solid ${themes.color} ${themes.font}  rounded-2xl border -2 shadow-lg `}
+      className={` ${themes.color} ${themes.font}  rounded-2xl border -2 shadow-lg `}
     >
-      <nav className="my-9 px-2">
+      <nav className="my-9 px-2 box-border">
         <NavLink to="/" style={navLinkStyle}>
           <div className="flex py-3 gap-3 shadow-lg rounded-2xl">
             <img src={homeLogo} alt="home" />

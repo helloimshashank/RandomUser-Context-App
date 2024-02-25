@@ -1,9 +1,10 @@
 import Axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import useFetch from "../UseFetch";
-import userDetails from "../contexts/userContext";
+import useFetch from "../../UseFetch";
+import userDetails from "../../contexts/userContext";
 import LoginOut from "./LoginOut";
 import ApiLogin from "./ApiLogin";
+import SellerLogin from "./SellerLogin";
 function User() {
   const { data, refetch } = useFetch("https://randomuser.me/api/");
   const [user, setUser] = useState("");
@@ -27,6 +28,7 @@ function User() {
           <div className="flex gap-4">
             <LoginOut user={user} getData={getData} />
             <ApiLogin />
+            <SellerLogin />
           </div>
         )}
       </div>

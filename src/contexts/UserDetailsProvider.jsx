@@ -11,6 +11,7 @@ const UserDetailsProvider = ({ children }) => {
   };
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
+    console.log("userData is", userData);
     var data = JSON.parse(localStorage.getItem("userData"));
     if (data && data.Token)
       console.log("userdata in localStorage is", data.Token);

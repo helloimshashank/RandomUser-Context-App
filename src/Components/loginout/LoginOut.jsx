@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import userDetails from "../contexts/userContext";
-import nextLogo from "../assets/next.svg";
-import themeMode from "../contexts/themeContext";
+import userDetails from "../../contexts/userContext";
+// import nextLogo from "../";
+import themeMode from "../../contexts/themeContext";
 import axios from "axios";
 function LoginOut({ userData, user, getData }) {
   const { logOut, login } = useContext(userDetails);

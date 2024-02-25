@@ -1,13 +1,14 @@
 import React, { useContext, useEffect } from "react";
 import NavBar from "./NavBar";
-import HomePage from "./HomePage";
-import User from "./User";
+import HomePage from "./homepage/HomePage";
+import User from "./loginout/User";
 import Settings from "./Settings";
-import SingleItem from "./singleItem";
+import SingleItem from "./homepage/SingleItem";
 import { Route, Routes, json } from "react-router-dom";
 import themeMode from "../contexts/themeContext";
 import userDetails from "../contexts/userContext";
 import Profile from "./Profile";
+import Additem from "./Additem";
 function Main1() {
   const { themes, setThemes, ftheme } = useContext(themeMode);
   const { login } = useContext(userDetails);
@@ -38,6 +39,8 @@ function Main1() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/:itemId" element={<SingleItem />} />
+          <Route path="/seller/additem" element={<Additem />} />
+          <Route path="/seller/updateitem/:itemId" element={<Additem />} />
         </Routes>
       </div>
     </div>

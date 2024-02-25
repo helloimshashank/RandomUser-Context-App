@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useContext, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import userDetails from "../contexts/userContext";
-import useFetch from "../UseFetch";
+import userDetails from "../../contexts/userContext";
+import useFetch from "../../UseFetch";
 
-import themeMode from "../contexts/themeContext";
+import themeMode from "../../contexts/themeContext";
 function HomePage() {
   const [itemData, setItemData] = useState([]);
   const navigate = useNavigate();
   const { logOut, userData, login } = useContext(userDetails);
   const { themes } = useContext(themeMode);
-  console.log("current theme is", themes.themeColor);
+  // console.log("current theme is", themes.themeColor);
   const { data, loading, refetch } = useFetch(
     "http://localhost:3000/item/show"
   );
@@ -18,10 +18,6 @@ function HomePage() {
   useEffect(() => {
     if (data && data.items) {
       setItemData(data.items);
-      console.log("itemData is", itemData);
-      itemData.map((item) => {
-        console.log(item.id);
-      });
     }
   }, [data, loading]);
   return (
@@ -43,11 +39,18 @@ function HomePage() {
             {itemData.map((item) => (
               <div
                 key={item.id}
-                className={`border-2 p-8 rounded-xl shadow-xl ${
+                className={`border-2 p-8 rounded-xl hover:shadow-2xl 
+                ${
+                  item.stock == 0
+                    ? "bg-gradient-to-tr from-stone-500 to-stone-600" //doesnt work
+                    : ""
+                } 
+                ${
                   themes.themeColor == "light"
                     ? "bg-gradient-to-bl from-green-200 to-green-400 "
                     : ""
-                }  ${
+                }  
+                ${
                   themes.themeColor == "dark"
                     ? " bg-gradient-to-br from-transparent to-green-900"
                     : ""
@@ -64,6 +67,13 @@ function HomePage() {
                       in stock
                     </span>
                   )}
+                  {/* {item.stock == 0 ? (
+                    <span className="font-semibold text-gray-800">
+                      No stock Left //doesnt work
+                    </span>
+                  ) : (
+                    ""
+                  )} */}
                 </h3>
                 <br />
               </div>

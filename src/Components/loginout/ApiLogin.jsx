@@ -1,14 +1,14 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
-import usePost from "../usePost";
-import UserDetailsProvider from "../contexts/UserDetailsProvider";
-import userDetails from "../contexts/userContext";
+import usePost from "../../usePost";
+import UserDetailsProvider from "../../contexts/UserDetailsProvider";
+import userDetails from "../../contexts/userContext";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function ApiLogin() {
   const [email, setEmail] = useState("aradya@gmail.com");
   const [password, setPassword] = useState("aradya123");
-  const [result, setResult] = useState("");
+
   const [error, SetError] = useState({
     emailErr: "",
     pwdErr: "",

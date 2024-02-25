@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import useFetch from "../UseFetch";
+import useFetch from "../../UseFetch";
 import { NavLink, useParams } from "react-router-dom";
-import userDetails from "../contexts/userContext";
+import userDetails from "../../contexts/userContext";
 import axios from "axios";
 
 function singleItem() {

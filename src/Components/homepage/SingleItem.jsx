@@ -16,10 +16,41 @@ function singleItem() {
   const [itemDet, setItemDet] = useState({});
   const [stock, setStock] = useState(1);
   const [result, setResult] = useState("");
+  const [comment, setComment] = useState("");
+  const [totalComments, setTotalComments] = useState([]);
   const params = useParams();
   var itemId = params.itemId;
   const { data } = useFetch(`http://localhost:3000/item/${itemId}`);
+
+  const { data: comments, refetch: refetchComment } = useFetch(
+    `http://localhost:3000/item/comment/${itemId}`
+  );
+  useEffect(() => {
+    if (comments && comments.result) setTotalComments(comments.result);
+    if (comment) refetchComment();
+  }, [comments]);
+
+  console.log("comments are", comments);
   const { userData } = useContext(userDetails);
+  async function addComment(e) {
+    e.preventDefault();
+    try {
+      const res = await authAxios.post(
+        `http://localhost:3000/item/comment/${itemId}`,
+        {
+          comment,
+        },
+        {
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      );
+      console.log("result is", res);
+    } catch (err) {
+      console.log("error while commenting", err);
+    }
+  }
   async function buyItem() {
     try {
       const data = await authAxios.post(
@@ -70,6 +101,32 @@ function singleItem() {
             <NavLink to="/login">please Login to buy</NavLink>
           )}
           <br></br> <span>{result}</span>
+          <div>
+            {!totalComments ? (
+              <h1>no comments yet</h1>
+            ) : (
+              <>
+                <h1>comments</h1>
+                <form className=" flex mb-3" onSubmit={addComment}>
+                  <textarea
+                    className="w-72 h-9"
+                    placeholder="add a comment"
+                    onChange={(e) => setComment(e.target.value)}
+                  ></textarea>
+                  <button className="h-10 ml-4 border-2 p-2 text-white bg-green-200">
+                    post
+                  </button>
+                </form>
+
+                {totalComments.map((comment) => (
+                  <div key={comment.comment_id} className="flex-col border-2">
+                    <h1>{comment.customer_name}</h1>
+                    <p>{comment.comment}</p>
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
         </>
       ) : (
         "couldnt find item"

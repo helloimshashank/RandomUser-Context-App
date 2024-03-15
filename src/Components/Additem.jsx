@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Navigate, redirect, useParams } from "react-router-dom";
+import Comments from "./homepage/Comments";
 function Additem() {
   // const [itemid, setitemId] = useState("");
   const [itemname, setitemName] = useState("");
@@ -92,6 +93,7 @@ function Additem() {
         <button>ADD ITEM</button>
       </form>
       <h1>{result}</h1>
+      <Comments />
     </div>
   );
 }
